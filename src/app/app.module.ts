@@ -26,7 +26,8 @@ import { ClientService } from "./services/client.service";
 import { FormsModule } from "@angular/forms";
 import { FlashMessagesModule } from "angular2-flash-messages";
 import { AuthService } from "./services/auth.service";
-import {SettingsService} from "./services/settings.service";
+import { SettingsService } from "./services/settings.service";
+import { MyPipePipe } from './pipes/my-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {SettingsService} from "./services/settings.service";
     NotFoundComponent,
     RegisterComponent,
     SettingsComponent,
-    SidebarComponent
+    SidebarComponent,
+    MyPipePipe
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,7 @@ import {SettingsService} from "./services/settings.service";
     FormsModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [ClientService, AuthService, SettingsService],
+  providers: [ClientService, AuthService, SettingsService, MyPipePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

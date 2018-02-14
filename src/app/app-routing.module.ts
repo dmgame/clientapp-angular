@@ -12,11 +12,12 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { ClientDetailsComponent } from "./components/client-details/client-details.component";
 
 import { AuthGuard } from "./guard/auth.guard";
+import { RegistrationGuard } from "./guard/register.guard";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent, canActivate: [RegistrationGuard] },
   { path: 'client/add', component: AddClientComponent, canActivate: [AuthGuard] },
   { path: 'client/edit/:id', component: EditClientComponent, canActivate: [AuthGuard] },
   { path: 'client/:id', component: ClientDetailsComponent, canActivate: [AuthGuard] },
@@ -31,6 +32,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   declarations: [],
-  providers: [AuthGuard]
+  providers: [AuthGuard, RegistrationGuard]
 })
 export class AppRoutingModule { }
